@@ -9,6 +9,7 @@ Random.constructor = Random;
 Random.prototype.init = function () {
     const self = this;
     const container = this.getDOMElement();
+    const listGroup = document.getElementsByClassName('list-group-random');
 
     axios.get('http://localhost:3000/random-numbers')
         .then(function (response) {
@@ -18,16 +19,16 @@ Random.prototype.init = function () {
                 }
             });
 
-            if (document.getElementsByClassName('list-group-random')[0].childNodes.length === 0) {
+            if (listGroup[0].childNodes.length === 0) {
                 self.render();
-            } else if (document.getElementsByClassName('list-group-random')[0].childNodes.length > 0) {
+            } else if (listGroup[0].childNodes.length > 0) {
                 while (container.firstChild) {
                     container.removeChild(container.firstChild);
                 }
                 self.render();
             };
 
-            self.sorting();
+            self.sorting();            
         })
         .catch(function (error) {
             console.error(error);
@@ -42,8 +43,7 @@ Random.prototype.render = function () {
         listElement.classList.add('list-group-item');        
         listElement.innerHTML = number.id;        
 
-        container.appendChild(listElement);
-            
+        container.appendChild(listElement);            
     });    
 };
 

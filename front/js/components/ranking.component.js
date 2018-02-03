@@ -39,3 +39,19 @@ Ranking.prototype.render = function() {
     listElement.appendChild(numberElement);
   });
 };
+
+// Ranking.prototype.sorting = function() {
+//   const container = document.getElementById('numbers-ranking');
+//   const rankingList = document.getElementsByClassName('list-group-item-ranking');  
+
+//   for (let i = 0; i < rankingList.length; i++) {
+//     for (let j = 1; j < rankingList.length; j++) {
+//       if (parseFloat(rankingList[j].childNodes[1].innerHTML) > (parseFloat(rankingList[j - 1].childNodes[1].innerHTML))) {
+//         const bigger = rankingList[j - 1];
+//         rankingList[j - 1] = rankingList[j];
+//         rankingList[j] = bigger;
+//         container.insertBefore(rankingList[j], container.firstChild);
+//       }
+//     }
+//   }
+// }
